@@ -44,14 +44,14 @@ export default function TextBox(props) {
                     <textarea className="form-control"  value={text} onChange={handleOnChange} 
                     style={{backgroundColor: props.mode === "light" ? "white" : "grey" ,color: props.mode === "dark" ? "white" : "black" }} id="myBox" rows="8"></textarea>
                 </div>
-                <button className="btn btn-primary mx-2" onClick={handleUpClick}>ConvertToUpCase</button>
-                <button className="btn btn-primary mx-2" onClick={handleLowClick}>ConvertToLowCase</button>
-                <button className="btn btn-primary mx-2" onClick={handleclrClick}>Clear</button>
+                <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>ConvertToUpCase</button>
+                <button className="btn btn-primary mx-2 my-2" onClick={handleLowClick}>ConvertToLowCase</button>
+                <button className="btn btn-primary mx-2 my-2" onClick={handleclrClick}>Clear</button>
                 
             </div>
             <div className="container my-2" style={{color: props.mode === "dark" ? "white" : "black" }}>
                 <h2>Text Samary</h2>
-                <p>You type {text.split(" ").length} words and {text.length} characturs</p>
+                <p>You type {text.split(" ").filter((element) => {return element.length!==0}).length} words and {text.length} characturs</p>
                 <p>{0.008 * text.split(" ").length} minutes to read</p>
                 <h2>Preview</h2>
                 <p>{text.length>0?text:"Enter your text above textbox to get preview"}</p>
